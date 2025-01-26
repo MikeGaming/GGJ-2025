@@ -106,7 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a2d8ddb9480d642857a5b1855d5ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ring: {fileID: 3063140540350516054}
+  ring: {fileID: 6005916462926274354}
+  dead_mat: {fileID: 2100000, guid: 29b870a9b5899c540a4f80d6f8aefe67, type: 2}
   shape: {fileID: 0}
   controller: {fileID: 0}
   bod: {fileID: 0}
@@ -210,5 +211,10 @@ PrefabInstance:
 --- !u!4 &4833033030983214173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bee5b2905fee1fa4da4b72e5cbfbf746, type: 3}
+  m_PrefabInstance: {fileID: 4942938713048384438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6005916462926274354 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: bee5b2905fee1fa4da4b72e5cbfbf746, type: 3}
   m_PrefabInstance: {fileID: 4942938713048384438}
   m_PrefabAsset: {fileID: 0}
