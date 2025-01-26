@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -12,7 +13,6 @@ public class CursorController : MonoBehaviour
 	public List<Transform> tokens;
 	public PlayerInput player;
 	Selectable cur_option = null;
-	int index = 0;
 
 	private void Awake() {
 		foreach (Transform token in tokens) {
@@ -53,17 +53,22 @@ public class CursorController : MonoBehaviour
 			return;
 		
 		if (cur_option.GetComponent<ToppingSelectMoment>()) {
+			int index = -1;
+			int counter = 0;
+			foreach (Transform tok in tokens) {
+				if (tok.parent == transform) {
+					index = counter;
+					break;
+				}
+				++counter;
+			}
 			Transform token = cur_option.GetComponent<ToppingSelectMoment>().ToggleButton(player,
-					index == tokens.Count ? null : tokens[index]);
+					index == -1 ? null : tokens[index]);
 			if (token != null) {
 				if (token.parent != transform) {
-					++index;
 					token.transform.position = cur_option.transform.position +
 							new Vector3(Random.Range(-5f, 5f), Random.Range(-3f, 3f), -offset);
 					token.localEulerAngles = Vector3.forward * Random.Range(-25f, 25f);
-				}
-				else {
-					--index;
 				}
 			}
 		}

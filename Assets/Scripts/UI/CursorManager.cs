@@ -71,7 +71,14 @@ public class CursorManager : MonoBehaviour
 	public void StartGame() {
 		foreach (PlayerInput input in players) {
 			CursorController cursor = input.GetComponentInChildren<CursorController>();
-			if (cursor.tokens[0].parent == cursor.transform)
+			bool check = true;
+			foreach (Transform token in cursor.tokens) {
+				if (token.parent != cursor.transform) {
+					check = false;
+					break;
+				}
+			}
+			if (check)
 				return;
 		}
 
@@ -83,7 +90,7 @@ public class CursorManager : MonoBehaviour
 
 			foreach (Transform token in cursor.tokens) {
 				if (token.parent == cursor.transform)
-					break;
+					continue;
 				ToppingSelectMoment topping = token.parent.GetComponent<ToppingSelectMoment>();
 				topping.ToggleButton(input, token);
 				player.tapioca_prefabs.Add(topping.prefab);

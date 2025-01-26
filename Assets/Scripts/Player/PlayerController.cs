@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 		Vector2 new_average = Vector2.zero;
 		for (int i = 0; i < balls.Count;) {
 			Tapioca ball = balls[i];
-			if (Vector2.SqrMagnitude(ball.bod.position - average) > max_distance * max_distance) {
+			if (ball.bod.bodyType == RigidbodyType2D.Dynamic && Vector2.SqrMagnitude(ball.bod.position - average) > max_distance * max_distance) {
 				ball.RemoveSelf();
 				continue;
 			}
