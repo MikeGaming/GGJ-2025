@@ -60,8 +60,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Shininess: 16
-    - _SizeX: 0.00001
-    - _SizeY: 0.00001
+    - _SizeX: 0.1
+    - _SizeY: 0.1
     - _SpeedX: 2
     - _SpeedY: 2
     - _Transparency: 1

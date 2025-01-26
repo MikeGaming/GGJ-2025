@@ -29,7 +29,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
@@ -60,10 +60,10 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Shininess: 16
-    - _SizeX: 0.00001
-    - _SizeY: 0.00001
-    - _SpeedX: 1
-    - _SpeedY: 1
+    - _SizeX: 0.2
+    - _SizeY: 0.29
+    - _SpeedX: 2
+    - _SpeedY: 5
     - _Transparency: 0.25
     m_Colors:
     - _Albedo: {r: 0.6226415, g: 0.42521486, b: 0.249644, a: 1}
