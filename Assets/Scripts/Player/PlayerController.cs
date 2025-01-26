@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 	public float jump_spread = 1f;
 	public float max_distance = 35f;
 	public event Action<float, float> move_tapioca;
+	[HideInInspector]
+	public Material player_mat;
 	public List<Tapioca> balls = new List<Tapioca>();
 	[HideInInspector]
 	public CameraController cam;
@@ -117,7 +119,7 @@ public class PlayerController : MonoBehaviour
 			tapioca.RemoveSelf();
 		
 		tapioca.shape.gameObject.layer = 3;
-		tapioca.ring.SetActive(false);
+		tapioca.ring.sharedMaterial = player_mat;
 		
 		tapioca.controller = this;
 		balls.Add(tapioca);

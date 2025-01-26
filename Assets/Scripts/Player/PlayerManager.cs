@@ -10,9 +10,10 @@ public class PlayerManager : MonoBehaviour
 	public float final_angle = 95f;
 	public Transform cup;
 
-	public void PlayerJoined(PlayerController pinput, int index) {
+	public void PlayerJoined(PlayerController pinput, int index, Material mat) {
 		pinput.name = "Player " + index;
 		pinput.transform.position = transform.position;
+		pinput.player_mat = mat;
 		pinput.SpawnTapioca(start_amount, transform.position);
 	}
 

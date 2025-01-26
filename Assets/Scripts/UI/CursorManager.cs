@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class CursorManager : MonoBehaviour
 {
 	public Material[] playerMats;
+	public Material[] stampMats;
 	public Selectable first;
 	public ToppingSelectMoment[] buttons;
 	public PlayerInputManager pmanager;
@@ -29,7 +30,10 @@ public class CursorManager : MonoBehaviour
 
 		CursorController cursor = input.GetComponentInChildren<CursorController>();
 		foreach (Renderer render in cursor.renderers) {
-			render.material = playerMats[pmanager.playerCount - 1];
+			render.sharedMaterial = playerMats[pmanager.playerCount - 1];
+		}
+		foreach (Transform render in cursor.tokens) {
+			render.GetComponentInChildren<Renderer>().sharedMaterial = stampMats[pmanager.playerCount - 1];
 		}
 		cursor.offset = pmanager.playerCount * 2f;
 		cursor.text.text = "P" + pmanager.playerCount;
@@ -53,9 +57,10 @@ public class CursorManager : MonoBehaviour
 			if (after) {
 				CursorController cursor = players[i].GetComponentInChildren<CursorController>();
 				foreach (Renderer render in cursor.renderers) {
-					render.material = playerMats[i];
+					render.sharedMaterial = playerMats[i];
 				}
 				foreach (Transform token in cursor.tokens) {
+					token.GetComponentInChildren<Renderer>().sharedMaterial = stampMats[i];
 					if (token.parent != cursor.transform) {
 						token.transform.position += Vector3.forward * 2f;
 					}
@@ -98,7 +103,8 @@ public class CursorManager : MonoBehaviour
 			player.enabled = true;
 			Destroy(cursor.gameObject);
 			input.SwitchCurrentActionMap("Player");
-			plmanager.PlayerJoined(player, index++);
+			plmanager.PlayerJoined(player, index, playerMats[index]);
+			++index;
 		}
 
 		plmanager.Invoke("StartGame", 5f);

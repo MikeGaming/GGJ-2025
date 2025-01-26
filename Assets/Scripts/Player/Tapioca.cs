@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Tapioca : MonoBehaviour
 {
-	public GameObject ring;
+	public Renderer ring;
+	public Material dead_mat;
 	public Collider2D shape;
 	[HideInInspector]
 	public PlayerController controller;
@@ -35,7 +36,7 @@ public class Tapioca : MonoBehaviour
 		if (!controller || bod.bodyType != RigidbodyType2D.Dynamic) return false;
 		
 		shape.gameObject.layer = 10;
-		ring.SetActive(true);
+		ring.sharedMaterial = dead_mat;
 
 		controller.balls.Remove(this);
 		controller.move_tapioca -= Move;
