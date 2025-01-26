@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-	[SerializeField]	Vector3 offset;
+	public Vector3 offset;
 	[SerializeField]	float distanceScalerx = 0.75f;
 						float distanceScalery;
 	[SerializeField]	float minWidth = 10f;
 	[SerializeField]	float maxWidth = 100f;
 	[SerializeField]	float speed = 10f;
 	public Transform fallback;
-	public new Transform light;
 	public List<Transform> following = new List<Transform>();
 	public List<Color> colors = new List<Color>();
 	static public List<Color> colours = new List<Color>();
@@ -28,7 +27,6 @@ public class CameraController : MonoBehaviour
 		if (following.Count == 0 || playerCount == 0) {
 			if (fallback) {
 				transform.position = Vector3.MoveTowards(transform.position, fallback.position + offset, speed * 5f * Time.deltaTime);
-				light.position = Vector3.MoveTowards(light.position, fallback.position + Vector3.back * minWidth, speed * 5f * Time.deltaTime);
 			}
 
 			return;
@@ -66,6 +64,5 @@ public class CameraController : MonoBehaviour
 		offset.z = -Mathf.Clamp(Mathf.Max((maxx - minx) * distanceScalerx, (maxy - miny) * distanceScalery), minWidth, maxWidth);
 
 		transform.position = Vector3.MoveTowards(transform.position, sum + offset, speed * Time.deltaTime);
-		light.position = Vector3.MoveTowards(light.position, sum + Vector3.back * minWidth, speed * Time.deltaTime);
 	}
 }
