@@ -10,7 +10,8 @@ public class ToppingSelectMoment : MonoBehaviour
     [SerializeField] Sprite defaultSprite, clicked;
     Image image;
 
-	PlayerInput playerInput;
+	public PlayerInput playerInput;
+	public Transform held_token;
 
     private void Start()
     {
@@ -19,23 +20,29 @@ public class ToppingSelectMoment : MonoBehaviour
 
 
 
-    public void ToggleButton(PlayerInput player)
+    public Transform ToggleButton(PlayerInput player, Transform token)
     {
-        if (isOn)
-        {
-            image.sprite = defaultSprite;
+        if (isOn) {
+			if (playerInput != player)
+				return null;
+    	    image.sprite = defaultSprite;
             isOn = false;
+
+			token = held_token;
+			token.SetParent(player.transform, true);
+			playerInput = null;
+			held_token = null;
+			return token;
+        }
+		if (token != null) {
+        	image.sprite = clicked;
+        	isOn = true;
+
+        	token.SetParent(null, true);
 			playerInput = player;
-            // remove topping from list
-            //ToppingManager.Instance.RemoveTopping(toppingType);
-        }
-        else if (playerInput == player)
-        {
-            image.sprite = clicked;
-            isOn = true;
-            // add topping to list
-            //ToppingManager.Instance.AddTopping(toppingType);
-            //ToppingManager.Instance.count++;
-        }
+			held_token = token;
+        	return token;
+		}
+		return null;
     }
 }

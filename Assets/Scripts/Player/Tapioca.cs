@@ -46,7 +46,7 @@ public class Tapioca : MonoBehaviour
 		RemoveSelf();
 	}
 
-	private void OnTriggerEnter2D(Collider2D other) {
+	private void OnTriggerStay2D(Collider2D other) {
 		if (controller && other.attachedRigidbody) {
 			Tapioca tapioca = other.attachedRigidbody.GetComponent<Tapioca>();
 			if (tapioca && tapioca.controller == null) {

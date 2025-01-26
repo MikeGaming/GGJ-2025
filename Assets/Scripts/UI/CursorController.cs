@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,7 @@ public class CursorController : MonoBehaviour
 	public float offset = 0;
 	public TMP_Text text;
 	public Renderer[] renderers;
+	public List<Transform> tokens;
 	PlayerInput player;
 	Selectable cur_option = null;
 
@@ -16,7 +18,7 @@ public class CursorController : MonoBehaviour
 	}
 
 	public void Move(InputAction.CallbackContext input) {
-		if (!input.started)
+		if (!input.started || cur_option == null)
 			return;
 		
 		Vector2 dir = input.ReadValue<Vector2>();
@@ -43,18 +45,28 @@ public class CursorController : MonoBehaviour
 	}
 
 	public void Merge(InputAction.CallbackContext input) {
-		if (input.started) {
-			if (cur_option.GetComponent<ToppingSelectMoment>()) {
-				(cur_option.GetComponent<ToppingSelectMoment>()).ToggleButton(player);
+		if (!input.started || cur_option == null)
+			return;
+		
+		if (cur_option.GetComponent<ToppingSelectMoment>()) {
+			Transform token = cur_option.GetComponent<ToppingSelectMoment>().ToggleButton(player,
+					tokens.Count == 0 ? null : tokens[tokens.Count - 1]);
+			if (token != null) {
+				if (tokens.Contains(token))
+					tokens.Remove(token);
+				else
+					tokens.Add(token);
 			}
-			else if (cur_option as Button) {
-				(cur_option as Button).onClick.Invoke();
-			}
+		}
+		else if (cur_option.GetComponent<Leave>()) {
+			cur_option.GetComponent<Leave>().RemovePLayer(player);
+		}
+		else if (cur_option as Button) {
+			(cur_option as Button).onClick.Invoke();
 		}
 	}
 
 	public void SetCurOption(Selectable option) {
-		Debug.Log(option);
 		cur_option = option;
 		transform.position = cur_option.transform.position + Vector3.back * offset;
 	}

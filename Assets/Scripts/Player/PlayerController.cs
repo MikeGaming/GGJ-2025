@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
 	public float jump_spread = 1f;
 	public float max_distance = 25f;
 	public event Action<float, float> move_tapioca;
-	[HideInInspector]
 	public List<Tapioca> balls = new List<Tapioca>();
 	[HideInInspector]
 	public CameraController cam;

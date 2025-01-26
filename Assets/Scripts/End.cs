@@ -22,6 +22,8 @@ public class End : MonoBehaviour
 			if (tapioca && tapioca.controller) {
 				PlayerController controller = tapioca.controller;
 				if (tapioca.RemoveSelf()) {
+					tapioca.shape.gameObject.layer = 8;
+					tapioca.gameObject.layer = 2;
 					if (score.ContainsKey(controller))
 						score[controller] += 1;
 					else {

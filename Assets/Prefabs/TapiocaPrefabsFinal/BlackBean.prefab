@@ -62,6 +62,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 635715633640002260, guid: 9311013397a87ca4780c097fb509717c, type: 3}
   m_PrefabInstance: {fileID: 4019294309647620491}
   m_PrefabAsset: {fileID: 0}
+--- !u!70 &5837001427408034317 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7405702563142632326, guid: 9311013397a87ca4780c097fb509717c, type: 3}
+  m_PrefabInstance: {fileID: 4019294309647620491}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7352941132188875942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,6 +75,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 477449120974905587, guid: 5dabf3c73486d7841bda24b553b8fb80, type: 3}
+      propertyPath: shape
+      value: 
+      objectReference: {fileID: 5837001427408034317}
     - target: {fileID: 2385927358247938429, guid: 5dabf3c73486d7841bda24b553b8fb80, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

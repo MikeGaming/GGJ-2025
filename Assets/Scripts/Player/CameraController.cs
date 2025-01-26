@@ -36,7 +36,7 @@ public class CameraController : MonoBehaviour
 		float miny = float.PositiveInfinity, maxy = float.NegativeInfinity;
 		Vector3 sum = Vector3.zero;
 		for (int i = 0; i < following.Count;) {
-			if (following[i] == null || following[i].gameObject.layer == 10) {
+			if (following[i] == null) {
 				following.RemoveAt(i);
 				continue;
 			}

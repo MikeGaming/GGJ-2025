@@ -57,6 +57,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afe06ad5a2ce93847960afafe3e15d2a, type: 3}
+--- !u!58 &3440720623690186529 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3981892823702399202, guid: afe06ad5a2ce93847960afafe3e15d2a, type: 3}
+  m_PrefabInstance: {fileID: 1800704554293827523}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4670790636961557458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6353620394708892689, guid: afe06ad5a2ce93847960afafe3e15d2a, type: 3}
@@ -70,6 +75,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 477449120974905587, guid: 5dabf3c73486d7841bda24b553b8fb80, type: 3}
+      propertyPath: shape
+      value: 
+      objectReference: {fileID: 3440720623690186529}
     - target: {fileID: 2385927358247938429, guid: 5dabf3c73486d7841bda24b553b8fb80, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
