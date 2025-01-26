@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2385927358247938429}
   - component: {fileID: 7771642897126772486}
   - component: {fileID: 477449120974905587}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tapioca
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,4 +72,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a2d8ddb9480d642857a5b1855d5ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   controller: {fileID: 0}

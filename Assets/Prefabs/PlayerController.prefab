@@ -148,8 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9461d9f3f7d5fa34d8500e4e384a31c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tapioca_prefabs: []
   speed: 5
-  merge_speed: 2.5
+  merge_speed: 5
   max_speed: 10
   roll_speed: 36000
   max_rot_speed: 360
@@ -157,6 +158,7 @@ MonoBehaviour:
   min_jump_strength: 7
   max_jump_strength: 8.5
   jump_spread: 1
+  balls: []
   average: {x: 0, y: 0}
 --- !u!1 &4868661839039833708
 GameObject:
@@ -202,8 +204,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb51685e341dfd49801301de895ecd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tapioca:
-  - {fileID: 1203815345341368085, guid: 256449e7327200f438e871121d4ecb0f, type: 3}
-  - {fileID: 1394629523261464656, guid: 3fd345d830da5a4459c960d1c83af53f, type: 3}
   controller: {fileID: 1382258505304917622}
-  amount: 500
+  amount: 50
