@@ -1187,10 +1187,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMats:
-  - {fileID: 2100000, guid: 5372499c506b94d4ab5e2856054c5798, type: 2}
-  - {fileID: 2100000, guid: 39d98a22c5d77ef4b8070c3fc5558d23, type: 2}
-  - {fileID: 2100000, guid: 638ebc7ad78f7b743bf50d0481772f8e, type: 2}
-  - {fileID: 2100000, guid: f779fa4a8783787429b1261da2e1ce87, type: 2}
+  - {fileID: 2100000, guid: 0087f1850ca494d48ac4137f44f104b4, type: 2}
+  - {fileID: 2100000, guid: 008499848d67e6d449f8376c9bf88133, type: 2}
+  - {fileID: 2100000, guid: 43fe2d7727baa9c4ba0336b41f50ec9d, type: 2}
+  - {fileID: 2100000, guid: 251c8728c96308c4f89c2f7ca805018e, type: 2}
+  stampMats:
+  - {fileID: 2100000, guid: d73d76cd323a1cc408bccfe657320a88, type: 2}
+  - {fileID: 2100000, guid: 0e33c4d8f443f484a9806cc8737af032, type: 2}
+  - {fileID: 2100000, guid: b844ec69681c36d479c2174ff86583a9, type: 2}
+  - {fileID: 2100000, guid: f330be925dc443a4a953498fb49ea00f, type: 2}
   first: {fileID: 5092895495213679433}
   buttons:
   - {fileID: 6869170259937081816}
