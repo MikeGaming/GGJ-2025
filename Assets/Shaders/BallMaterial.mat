@@ -27,7 +27,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -52,10 +52,16 @@ Material:
     m_Ints: []
     m_Floats:
     - _AmbientStrength: 0.1
+    - _PositionScale: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Shininess: 16
+    - _Shininess: 51.3
+    - _SizeX: 0.1
+    - _SizeY: 0.1
+    - _SpeedX: 1
+    - _SpeedY: 1
+    - _Transparency: 0.9
     m_Colors:
-    - _Albedo: {r: 1, g: 1, b: 1, a: 1}
+    - _Albedo: {r: 0.27044016, g: 0.1898547, b: 0.011055681, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
