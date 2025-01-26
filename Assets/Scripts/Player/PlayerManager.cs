@@ -17,5 +17,6 @@ public class PlayerManager : MonoBehaviour
 
 	public void PlayerJoined(PlayerInput pinput) {
 		pinput.GetComponent<PlayerController>().tapioca_prefabs = options[pmanager.playerCount % options.Length];
-	}
+        pinput.transform.position = transform.position;
+    }
 }
