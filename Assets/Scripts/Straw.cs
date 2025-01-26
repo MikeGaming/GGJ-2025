@@ -8,7 +8,7 @@ public class Straw : MonoBehaviour
 	public float speed = 10f;
 
 	private void OnTriggerEnter2D(Collider2D other) {
-		if (other.attachedRigidbody) {
+		if (other.attachedRigidbody && other.attachedRigidbody.bodyType == RigidbodyType2D.Dynamic) {
 			StartCoroutine(Suck(other.attachedRigidbody, other));
 		}
 	}

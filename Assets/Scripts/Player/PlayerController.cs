@@ -110,6 +110,9 @@ public class PlayerController : MonoBehaviour
 	}
 
 	public void TakeTapioca(Tapioca tapioca) {
+		if (tapioca.bod.bodyType != RigidbodyType2D.Dynamic)
+			return;
+		
 		if (tapioca.controller)
 			tapioca.RemoveSelf();
 		

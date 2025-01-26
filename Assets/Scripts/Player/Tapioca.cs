@@ -32,7 +32,7 @@ public class Tapioca : MonoBehaviour
 	}
 
 	public bool RemoveSelf() {
-		if (!controller) return false;
+		if (!controller || bod.bodyType != RigidbodyType2D.Dynamic) return false;
 		
 		shape.gameObject.layer = 10;
 		ring.SetActive(true);
@@ -49,7 +49,8 @@ public class Tapioca : MonoBehaviour
 	}
 
 	private void OnTriggerStay2D(Collider2D other) {
-		if (controller && other.attachedRigidbody) {
+		if (controller && other.attachedRigidbody && bod.bodyType == RigidbodyType2D.Dynamic &&
+				other.attachedRigidbody.bodyType == RigidbodyType2D.Dynamic) {
 			Tapioca tapioca = other.attachedRigidbody.GetComponent<Tapioca>();
 			if (tapioca && tapioca.controller == null) {
 				controller.TakeTapioca(tapioca);
