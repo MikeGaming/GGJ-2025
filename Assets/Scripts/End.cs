@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using TMPro;
@@ -8,6 +9,8 @@ using UnityEngine.InputSystem;
 public class End : MonoBehaviour
 {
 	public float cam_distance = 25f;
+	public Straw straw;
+	public Transform straw_target;
 	public TMP_Text text;
 	CameraController cam;
 	Dictionary<PlayerController, int> score = new Dictionary<PlayerController, int>();
@@ -31,6 +34,7 @@ public class End : MonoBehaviour
 
 	private void Awake() {
 		cam = Camera.main.GetComponent<CameraController>();
+		straw.GetComponent<Collider2D>().enabled = false;
 	}
 
 	private void Update() {
@@ -60,6 +64,26 @@ public class End : MonoBehaviour
 					text.text += key.name + ": " + score[key] + "\n";
 				}
 			}
+			else {
+				bool merging = true;
+				foreach (PlayerController key in score.Keys) {
+					merging &= key.merging;
+				}
+				if (merging) {
+					StartCoroutine(Straw());
+				}
+			}
 		}
+	}
+
+	IEnumerator Straw() {
+		straw.GetComponent<Collider2D>().enabled = true;
+		
+		while (straw.transform.position != straw_target.position) {
+			straw.transform.position = Vector3.MoveTowards(straw.transform.position,
+					straw_target.position, 5f * Time.deltaTime);
+			yield return null;
+		}
+		Debug.Log("End");
 	}
 }

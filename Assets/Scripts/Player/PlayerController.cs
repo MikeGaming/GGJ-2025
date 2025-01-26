@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 	public float min_jump_strength = 10f;
 	public float max_jump_strength = 12f;
 	public float jump_spread = 1f;
+	public float max_distance = 25f;
 	public event Action<float, float> move_tapioca;
 	[HideInInspector]
 	public List<Tapioca> balls = new List<Tapioca>();
@@ -25,10 +26,12 @@ public class PlayerController : MonoBehaviour
 	float direction = 0;
 	[HideInInspector]
 	public Vector2 average = Vector2.zero;
-	bool merging = false;
+	[HideInInspector]
+	public bool merging = false;
 
 	private void Awake() {
 		cam = Camera.main.GetComponent<CameraController>();
+		average = transform.position;
 	}
 
 	private void OnEnable() {
@@ -40,11 +43,20 @@ public class PlayerController : MonoBehaviour
 	}
 
 	private void FixedUpdate() {
-		average = Vector2.zero;
-		foreach (Tapioca ball in balls) {
-			average += new Vector2(ball.transform.position.x, ball.transform.position.y);
+		if (balls.Count == 0)
+			return;
+		
+		Vector2 new_average = Vector2.zero;
+		for (int i = 0; i < balls.Count;) {
+			Tapioca ball = balls[i];
+			if (Vector2.SqrMagnitude(ball.bod.position - average) > max_distance * max_distance) {
+				ball.RemoveSelf();
+				continue;
+			}
+			new_average += new Vector2(ball.transform.position.x, ball.transform.position.y);
+			++i;
 		}
-		average /= balls.Count;
+		average = new_average / balls.Count;
 
 		if (direction != 0) {
 			move_tapioca?.Invoke(direction * speed, max_rot_speed);
@@ -104,6 +116,8 @@ public class PlayerController : MonoBehaviour
 	public void TakeTapioca(Tapioca tapioca) {
 		if (tapioca.controller)
 			tapioca.RemoveSelf();
+		
+		tapioca.shape.gameObject.layer = 3;
 		
 		tapioca.controller = this;
 		balls.Add(tapioca);

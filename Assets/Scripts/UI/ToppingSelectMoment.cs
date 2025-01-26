@@ -1,12 +1,16 @@
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ToppingSelectMoment : MonoBehaviour
 {
+	public int toppingType = 0;
     bool isOn = false;
     [SerializeField] Sprite defaultSprite, clicked;
     Image image;
+
+	PlayerInput playerInput;
 
     private void Start()
     {
@@ -15,16 +19,17 @@ public class ToppingSelectMoment : MonoBehaviour
 
 
 
-    public void ToggleButton(int toppingType)
+    public void ToggleButton(PlayerInput player)
     {
         if (isOn)
         {
             image.sprite = defaultSprite;
             isOn = false;
+			playerInput = player;
             // remove topping from list
             //ToppingManager.Instance.RemoveTopping(toppingType);
         }
-        else //if ToppingManager.Instance.count < 3
+        else if (playerInput == player)
         {
             image.sprite = clicked;
             isOn = true;

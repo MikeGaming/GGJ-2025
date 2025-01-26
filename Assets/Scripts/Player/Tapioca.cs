@@ -2,12 +2,15 @@ using UnityEngine;
 
 public class Tapioca : MonoBehaviour
 {
+	public Collider2D shape;
 	[HideInInspector]
 	public PlayerController controller;
-	Rigidbody2D bod;
+	[HideInInspector]
+	public Rigidbody2D bod;
 
 	private void Awake() {
 		bod = GetComponent<Rigidbody2D>();
+		shape.gameObject.layer = 10;
 		transform.localScale = Vector3.one * Random.Range(0.8f, 1.2f);
 	}
 
@@ -30,6 +33,8 @@ public class Tapioca : MonoBehaviour
 	public bool RemoveSelf() {
 		if (!controller) return false;
 		
+		shape.gameObject.layer = 10;
+
 		controller.balls.Remove(this);
 		controller.move_tapioca -= Move;
 		controller.cam.following.Remove(transform);
@@ -39,5 +44,14 @@ public class Tapioca : MonoBehaviour
 
 	private void OnDestroy() {
 		RemoveSelf();
+	}
+
+	private void OnTriggerEnter2D(Collider2D other) {
+		if (controller && other.attachedRigidbody) {
+			Tapioca tapioca = other.attachedRigidbody.GetComponent<Tapioca>();
+			if (tapioca && tapioca.controller == null) {
+				controller.TakeTapioca(tapioca);
+			}
+		}
 	}
 }

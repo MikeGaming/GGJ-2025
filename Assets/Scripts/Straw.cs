@@ -29,6 +29,7 @@ public class Straw : MonoBehaviour
 			yield break;
 
 		int temp_layer = boba.gameObject.layer;
+		int temp_layer2 = shape.gameObject.layer;
 		boba.gameObject.layer = 7;
 		shape.gameObject.layer = 7;
 
@@ -54,7 +55,7 @@ public class Straw : MonoBehaviour
 		boba.position = start_pos;
 
 		boba.gameObject.layer = temp_layer;
-		shape.gameObject.layer = temp_layer;
+		shape.gameObject.layer = temp_layer2;
 		boba.bodyType = RigidbodyType2D.Dynamic;
 	}
 }
