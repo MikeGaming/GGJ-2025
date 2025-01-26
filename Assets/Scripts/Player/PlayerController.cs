@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
-	public Material colour;	
+	public Tapioca[] tapioca_prefabs;
 	public float speed = 2.5f;
 	public float merge_speed = 2.5f;
 	public float max_speed = 5f;
@@ -17,7 +18,8 @@ public class PlayerController : MonoBehaviour
 	public float max_jump_strength = 12f;
 	public float jump_spread = 1f;
 	public event Action<float, float> move_tapioca;
-	List<Tapioca> balls = new List<Tapioca>();
+	[HideInInspector]
+	public List<Tapioca> balls = new List<Tapioca>();
 	CameraController cam;
 	float direction = 0;
 	[HideInInspector]
@@ -90,22 +92,26 @@ public class PlayerController : MonoBehaviour
 		StartCoroutine(JumpTimer());
 	}
 
+	public void SpawnTapioca(int amount, Vector3 position) {
+		for (int i = 0; i < amount; ++i) {
+			TakeTapioca(Instantiate(tapioca_prefabs[Random.Range(0, tapioca_prefabs.Length)],
+					position + Vector3.right * Random.Range(-0.5f, 0.5f) +
+					Vector3.up * Random.Range(-0.5f, 0.5f), Quaternion.identity));
+		}
+	}
+
 	public void TakeTapioca(Tapioca tapioca) {
 		if (tapioca.controller) {
-			tapioca.controller.balls.Remove(tapioca);
-			tapioca.controller.move_tapioca -= tapioca.Move;
+			tapioca.RemoveSelf();
 		}
 		else {
 			cam.following.Add(tapioca.transform);
 		}
 		
 		tapioca.controller = this;
-		tapioca.render.material = colour;
 		balls.Add(tapioca);
 		move_tapioca += tapioca.Move;
 	}
-
-	//WaitForFixedUpdate wffu = new WaitForFixedUpdate();
 
 	IEnumerator JumpTimer() {
 		jump_queued = 3;

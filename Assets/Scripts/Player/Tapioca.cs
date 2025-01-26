@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Tapioca : MonoBehaviour
 {
-	public Renderer render;
 	[HideInInspector]
 	public PlayerController controller;
 	Rigidbody2D bod;
@@ -13,6 +12,8 @@ public class Tapioca : MonoBehaviour
 	}
 
 	public void Move(float direction, float rot_target) {
+		if (bod.bodyType == RigidbodyType2D.Kinematic) return;
+
 		if (Mathf.Abs(bod.linearVelocityX) < controller.max_speed) {
 			bod.linearVelocityX = Mathf.Clamp(bod.linearVelocityX + direction * Time.fixedDeltaTime,
 					-controller.max_speed, controller.max_speed);
@@ -26,7 +27,16 @@ public class Tapioca : MonoBehaviour
 		bod.linearVelocityX += Random.Range(-x_variance, x_variance);
 	}
 
-	private void OnDestroy() {
+	public bool RemoveSelf() {
+		if (!controller) return false;
+		
+		controller.balls.Remove(this);
 		controller.move_tapioca -= Move;
+		controller = null;
+		return true;
+	}
+
+	private void OnDestroy() {
+		RemoveSelf();
 	}
 }
