@@ -150,13 +150,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tapioca_prefabs: []
   speed: 5
-  merge_speed: 5
+  merge_speed: 8
   max_speed: 10
   roll_speed: 36000
   max_rot_speed: 360
-  jump_delay: 3
+  jump_delay: 2
   min_jump_strength: 7
-  max_jump_strength: 8.5
+  max_jump_strength: 10
   jump_spread: 1
   max_distance: 25
   balls: []
