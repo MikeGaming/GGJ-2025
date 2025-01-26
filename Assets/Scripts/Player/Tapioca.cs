@@ -32,6 +32,7 @@ public class Tapioca : MonoBehaviour
 		
 		controller.balls.Remove(this);
 		controller.move_tapioca -= Move;
+		controller.cam.following.Remove(transform);
 		controller = null;
 		return true;
 	}

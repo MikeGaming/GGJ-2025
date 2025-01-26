@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
 	public event Action<float, float> move_tapioca;
 	[HideInInspector]
 	public List<Tapioca> balls = new List<Tapioca>();
-	CameraController cam;
+	[HideInInspector]
+	public CameraController cam;
 	float direction = 0;
 	[HideInInspector]
 	public Vector2 average = Vector2.zero;
@@ -101,15 +102,12 @@ public class PlayerController : MonoBehaviour
 	}
 
 	public void TakeTapioca(Tapioca tapioca) {
-		if (tapioca.controller) {
+		if (tapioca.controller)
 			tapioca.RemoveSelf();
-		}
-		else {
-			cam.following.Add(tapioca.transform);
-		}
 		
 		tapioca.controller = this;
 		balls.Add(tapioca);
+		cam.following.Add(tapioca.transform);
 		move_tapioca += tapioca.Move;
 	}
 
