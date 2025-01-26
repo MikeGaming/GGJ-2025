@@ -7,7 +7,8 @@ using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
-	public Tapioca[] tapioca_prefabs;
+	[HideInInspector]
+	public List<Tapioca> tapioca_prefabs;
 	public float speed = 2.5f;
 	public float merge_speed = 2.5f;
 	public float max_speed = 5f;
@@ -17,7 +18,7 @@ public class PlayerController : MonoBehaviour
 	public float min_jump_strength = 10f;
 	public float max_jump_strength = 12f;
 	public float jump_spread = 1f;
-	public float max_distance = 25f;
+	public float max_distance = 35f;
 	public event Action<float, float> move_tapioca;
 	public List<Tapioca> balls = new List<Tapioca>();
 	[HideInInspector]
@@ -28,13 +29,9 @@ public class PlayerController : MonoBehaviour
 	[HideInInspector]
 	public bool merging = false;
 
-	private void Awake() {
-		cam = Camera.main.GetComponent<CameraController>();
-		average = transform.position;
-	}
-
 	private void OnEnable() {
 		cam.playerCount += 1;
+		average = transform.position;
 	}
 
 	private void OnDisable() {
@@ -106,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
 	public void SpawnTapioca(int amount, Vector3 position) {
 		for (int i = 0; i < amount; ++i) {
-			TakeTapioca(Instantiate(tapioca_prefabs[Random.Range(0, tapioca_prefabs.Length)],
+			TakeTapioca(Instantiate(tapioca_prefabs[Random.Range(0, tapioca_prefabs.Count)],
 					position + Vector3.right * Random.Range(-0.5f, 0.5f) +
 					Vector3.up * Random.Range(-0.5f, 0.5f), Quaternion.identity));
 		}
@@ -117,6 +114,7 @@ public class PlayerController : MonoBehaviour
 			tapioca.RemoveSelf();
 		
 		tapioca.shape.gameObject.layer = 3;
+		tapioca.ring.SetActive(false);
 		
 		tapioca.controller = this;
 		balls.Add(tapioca);

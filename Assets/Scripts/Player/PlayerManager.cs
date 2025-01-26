@@ -1,23 +1,31 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
-	public Tapioca[] option1;
-	public Tapioca[] option2;
-	Tapioca[][] options = new Tapioca[2][];
-	PlayerInputManager pmanager;
+	public int start_amount = 50;
+	public float speed = 90f;
+	public float final_angle = 95f;
+	public Transform cup;
 
-	private void Awake() {
-		pmanager = GetComponent<PlayerInputManager>();
-		options[0] = option1;
-		options[1] = option2;
+	public void PlayerJoined(PlayerController pinput, int index) {
+		pinput.name = "Player " + index;
+		pinput.transform.position = transform.position;
+		pinput.SpawnTapioca(start_amount, transform.position);
 	}
 
-	public void PlayerJoined(PlayerInput pinput) {
-		pinput.GetComponent<PlayerController>().tapioca_prefabs = options[pmanager.playerCount % options.Length];
-		pinput.name = "Player " + pmanager.playerCount;
-		pinput.transform.position = transform.position;
+	public void StartGame() {
+		StartCoroutine(Rotate());
+	}
+
+	IEnumerator Rotate() {
+		float angle = cup.eulerAngles.z;
+		while (angle != final_angle) {
+			angle = Mathf.MoveTowards(angle, final_angle, speed * Time.deltaTime);
+			cup.eulerAngles = Vector3.forward * angle;
+			yield return null;
+		}
 	}
 }

@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2385927358247938429, guid: 5dabf3c73486d7841bda24b553b8fb80, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7771642897126772486, guid: 5dabf3c73486d7841bda24b553b8fb80, type: 3}
       propertyPath: m_Material
       value: 
@@ -84,6 +88,18 @@ PrefabInstance:
     - target: {fileID: 87014156207806764, guid: a444575ea0fc2c84a818365044a02948, type: 3}
       propertyPath: m_Name
       value: JellyMango
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051602979332861187, guid: a444575ea0fc2c84a818365044a02948, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051602979332861187, guid: a444575ea0fc2c84a818365044a02948, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051602979332861187, guid: a444575ea0fc2c84a818365044a02948, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 9051602979332861187, guid: a444575ea0fc2c84a818365044a02948, type: 3}
       propertyPath: m_LocalPosition.x
@@ -124,6 +140,10 @@ PrefabInstance:
     - target: {fileID: 9051602979332861187, guid: a444575ea0fc2c84a818365044a02948, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051602979332861187, guid: a444575ea0fc2c84a818365044a02948, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

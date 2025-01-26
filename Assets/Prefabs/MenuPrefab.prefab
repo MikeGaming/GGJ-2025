@@ -365,6 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toppingType: 0
+  prefab: {fileID: 7384651360057591740, guid: 193124b6f0acdad489bcffc4bf9dbba3, type: 3}
   defaultSprite: {fileID: 21300000, guid: 69851885642ca2341af0d6301c3b2222, type: 3}
   clicked: {fileID: 21300000, guid: 6e9078f1efad29a4f838ae0608fef3b3, type: 3}
   playerInput: {fileID: 0}
@@ -503,6 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toppingType: 0
+  prefab: {fileID: 2528012394914848588, guid: 9c2a39db1a5a4304d8d6d1822f65ebdb, type: 3}
   defaultSprite: {fileID: 21300000, guid: 69851885642ca2341af0d6301c3b2222, type: 3}
   clicked: {fileID: 21300000, guid: 6e9078f1efad29a4f838ae0608fef3b3, type: 3}
   playerInput: {fileID: 0}
@@ -641,6 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toppingType: 0
+  prefab: {fileID: 2144846719194441553, guid: 1317566b142106b44ac364fd82346663, type: 3}
   defaultSprite: {fileID: 21300000, guid: 69851885642ca2341af0d6301c3b2222, type: 3}
   clicked: {fileID: 21300000, guid: 6e9078f1efad29a4f838ae0608fef3b3, type: 3}
   playerInput: {fileID: 0}
@@ -947,6 +950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toppingType: 0
+  prefab: {fileID: 7015073602619513347, guid: 54546644ee61db3458c3baf120bdf782, type: 3}
   defaultSprite: {fileID: 21300000, guid: 69851885642ca2341af0d6301c3b2222, type: 3}
   clicked: {fileID: 21300000, guid: 6e9078f1efad29a4f838ae0608fef3b3, type: 3}
   playerInput: {fileID: 0}
@@ -1085,6 +1089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toppingType: 0
+  prefab: {fileID: 6965617760645798997, guid: 5d0a4270b03ec47428583bd6d38f766a, type: 3}
   defaultSprite: {fileID: 21300000, guid: 69851885642ca2341af0d6301c3b2222, type: 3}
   clicked: {fileID: 21300000, guid: 6e9078f1efad29a4f838ae0608fef3b3, type: 3}
   playerInput: {fileID: 0}
@@ -1100,7 +1105,6 @@ GameObject:
   - component: {fileID: 3374879399281295289}
   - component: {fileID: 6149291748190962405}
   - component: {fileID: 4515524262498427199}
-  - component: {fileID: 1744281551777769949}
   - component: {fileID: 420551083639990503}
   m_Layer: 0
   m_Name: EventSystem
@@ -1170,98 +1174,6 @@ MonoBehaviour:
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
---- !u!114 &1744281551777769949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3095901166255086077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NotificationBehavior: 2
-  m_MaxPlayerCount: 4
-  m_AllowJoining: 1
-  m_JoinBehavior: 0
-  m_PlayerJoinedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2037588326315656512}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 133879731215466227}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 420551083639990503}
-        m_TargetAssemblyTypeName: CursorManager, Assembly-CSharp
-        m_MethodName: OnJoined
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_PlayerLeftEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 420551083639990503}
-        m_TargetAssemblyTypeName: CursorManager, Assembly-CSharp
-        m_MethodName: OnLeaved
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_JoinAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: d53a1629-1afe-43c6-8a2c-a5a0e2373fbc
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 5927065063126782239, guid: 73a8dd37ea5f9634ba6c63a60a217104, type: 3}
-  m_SplitScreen: 0
-  m_MaintainAspectRatioInSplitScreen: 0
-  m_FixedNumberOfSplitScreens: -1
-  m_SplitScreenRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!114 &420551083639990503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1275,8 +1187,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMats:
-  - {fileID: 2100000, guid: 97f637361c8dddf488ccdeeaf45830c6, type: 2}
-  - {fileID: 2100000, guid: d1e242fe37c1bf540bc33fa5ecfe329a, type: 2}
+  - {fileID: 2100000, guid: 5372499c506b94d4ab5e2856054c5798, type: 2}
+  - {fileID: 2100000, guid: 39d98a22c5d77ef4b8070c3fc5558d23, type: 2}
+  - {fileID: 2100000, guid: 638ebc7ad78f7b743bf50d0481772f8e, type: 2}
+  - {fileID: 2100000, guid: f779fa4a8783787429b1261da2e1ce87, type: 2}
   first: {fileID: 5092895495213679433}
   buttons:
   - {fileID: 6869170259937081816}
@@ -1288,6 +1202,10 @@ MonoBehaviour:
   - {fileID: 1370119113813884168}
   - {fileID: 3821120235421517944}
   - {fileID: 5916548791027626290}
+  pmanager: {fileID: 1183477109972442399}
+  plmanager: {fileID: 0}
+  manu: {fileID: 0}
+  game_camera: {fileID: 0}
 --- !u!1 &3195045481940429119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,7 +1556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8abe6c655e53d224f889a5516a71d7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pmanager: {fileID: 0}
+  pmanager: {fileID: 420551083639990503}
 --- !u!1 &3537052152124674833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,6 +1691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toppingType: 0
+  prefab: {fileID: 6965617760645798997, guid: 50167174a47acbf4d9c17124e297d1ab, type: 3}
   defaultSprite: {fileID: 21300000, guid: 69851885642ca2341af0d6301c3b2222, type: 3}
   clicked: {fileID: 21300000, guid: 6e9078f1efad29a4f838ae0608fef3b3, type: 3}
   playerInput: {fileID: 0}
@@ -1981,6 +1900,7 @@ GameObject:
   - component: {fileID: 4264891940316668092}
   - component: {fileID: 4994126027612283049}
   - component: {fileID: 4265837750510542479}
+  - component: {fileID: 1183477109972442399}
   m_Layer: 0
   m_Name: MenuPrefab
   m_TagString: Untagged
@@ -2101,6 +2021,98 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1183477109972442399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4155984953264481114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NotificationBehavior: 2
+  m_MaxPlayerCount: 4
+  m_AllowJoining: 1
+  m_JoinBehavior: 0
+  m_PlayerJoinedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2037588326315656512}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 133879731215466227}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 420551083639990503}
+        m_TargetAssemblyTypeName: CursorManager, Assembly-CSharp
+        m_MethodName: OnJoined
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_PlayerLeftEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 420551083639990503}
+        m_TargetAssemblyTypeName: CursorManager, Assembly-CSharp
+        m_MethodName: OnLeaved
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_JoinAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: d53a1629-1afe-43c6-8a2c-a5a0e2373fbc
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_PlayerPrefab: {fileID: 5927065063126782239, guid: 73a8dd37ea5f9634ba6c63a60a217104, type: 3}
+  m_SplitScreen: 0
+  m_MaintainAspectRatioInSplitScreen: 0
+  m_FixedNumberOfSplitScreens: -1
+  m_SplitScreenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &4551593937171589786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2221,7 +2233,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2006297892868672110}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 420551083639990503}
+        m_TargetAssemblyTypeName: CursorManager, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4673050330972708325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2761,6 +2785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toppingType: 0
+  prefab: {fileID: 7469274507836160508, guid: 635af5aa8bf2794479d19b21da980149, type: 3}
   defaultSprite: {fileID: 21300000, guid: 69851885642ca2341af0d6301c3b2222, type: 3}
   clicked: {fileID: 21300000, guid: 6e9078f1efad29a4f838ae0608fef3b3, type: 3}
   playerInput: {fileID: 0}
@@ -3035,6 +3060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toppingType: 0
+  prefab: {fileID: 2476590698345132185, guid: 7276ad378d2b55d498b3abcf78aabce1, type: 3}
   defaultSprite: {fileID: 21300000, guid: 69851885642ca2341af0d6301c3b2222, type: 3}
   clicked: {fileID: 21300000, guid: 6e9078f1efad29a4f838ae0608fef3b3, type: 3}
   playerInput: {fileID: 0}
@@ -3173,6 +3199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toppingType: 0
+  prefab: {fileID: 6965617760645798997, guid: 8c0c9e2bab207fe4fbf7513d5a100dd1, type: 3}
   defaultSprite: {fileID: 21300000, guid: 69851885642ca2341af0d6301c3b2222, type: 3}
   clicked: {fileID: 21300000, guid: 6e9078f1efad29a4f838ae0608fef3b3, type: 3}
   playerInput: {fileID: 0}

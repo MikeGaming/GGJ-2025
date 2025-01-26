@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class ToppingSelectMoment : MonoBehaviour
 {
 	public int toppingType = 0;
+    public Tapioca prefab;
     bool isOn = false;
     [SerializeField] Sprite defaultSprite, clicked;
-    Image image;
+	Image image;
 
 	public PlayerInput playerInput;
 	public Transform held_token;
@@ -29,7 +30,7 @@ public class ToppingSelectMoment : MonoBehaviour
             isOn = false;
 
 			token = held_token;
-			token.SetParent(player.transform, true);
+			token.SetParent(player.GetComponentInChildren<CursorController>().transform, true);
 			playerInput = null;
 			held_token = null;
 			return token;
@@ -38,7 +39,7 @@ public class ToppingSelectMoment : MonoBehaviour
         	image.sprite = clicked;
         	isOn = true;
 
-        	token.SetParent(null, true);
+        	token.SetParent(transform, true);
 			playerInput = player;
 			held_token = token;
         	return token;

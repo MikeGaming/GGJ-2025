@@ -10,11 +10,15 @@ public class CursorController : MonoBehaviour
 	public TMP_Text text;
 	public Renderer[] renderers;
 	public List<Transform> tokens;
-	PlayerInput player;
+	public PlayerInput player;
 	Selectable cur_option = null;
+	int index = 0;
 
 	private void Awake() {
-		player = GetComponent<PlayerInput>();
+		foreach (Transform token in tokens) {
+			token.transform.localPosition = new Vector3(Random.Range(-5f, 5f), Random.Range(-3f, 3f), 0f);
+			token.localEulerAngles = Vector3.forward * Random.Range(-25f, 25f);
+		}
 	}
 
 	public void Move(InputAction.CallbackContext input) {
@@ -50,12 +54,17 @@ public class CursorController : MonoBehaviour
 		
 		if (cur_option.GetComponent<ToppingSelectMoment>()) {
 			Transform token = cur_option.GetComponent<ToppingSelectMoment>().ToggleButton(player,
-					tokens.Count == 0 ? null : tokens[tokens.Count - 1]);
+					index == tokens.Count ? null : tokens[index]);
 			if (token != null) {
-				if (tokens.Contains(token))
-					tokens.Remove(token);
-				else
-					tokens.Add(token);
+				if (token.parent != transform) {
+					++index;
+					token.transform.position = cur_option.transform.position +
+							new Vector3(Random.Range(-5f, 5f), Random.Range(-3f, 3f), -offset);
+					token.localEulerAngles = Vector3.forward * Random.Range(-25f, 25f);
+				}
+				else {
+					--index;
+				}
 			}
 		}
 		else if (cur_option.GetComponent<Leave>()) {

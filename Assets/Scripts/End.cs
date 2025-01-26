@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class End : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class End : MonoBehaviour
 	public Straw straw;
 	public Transform straw_target;
 	public TMP_Text text;
+	public CursorManager cmanager;
+
 	CameraController cam;
 	Dictionary<PlayerController, int> score = new Dictionary<PlayerController, int>();
 
@@ -86,6 +89,13 @@ public class End : MonoBehaviour
 					straw_target.position, 5f * Time.deltaTime);
 			yield return null;
 		}
-		Debug.Log("End");
+		
+		float timer = 0;
+		while (timer < 5f) {
+
+			timer += Time.deltaTime;
+			yield return null;
+		}
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }
