@@ -27,6 +27,8 @@ public class Tapioca : MonoBehaviour
 	}
 
 	public void Jump(float min_strength, float max_strength, float x_variance) {
+		if (bod.bodyType == RigidbodyType2D.Kinematic) return;
+		
 		bod.linearVelocityY = Mathf.Max(bod.linearVelocityY, 0f) + Random.Range(min_strength, max_strength) * Mathf.Max(
 				100f - (new Vector2(transform.position.x, transform.position.y) - controller.average).sqrMagnitude, 50f) * 0.01f;
 		bod.linearVelocityX += Random.Range(-x_variance, x_variance);
