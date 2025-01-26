@@ -197,7 +197,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: bee5b2905fee1fa4da4b72e5cbfbf746, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 0881e54236f1ab544b92a376f6ee865e, type: 2}
+      objectReference: {fileID: 2100000, guid: 0087f1850ca494d48ac4137f44f104b4, type: 2}
     - target: {fileID: 919132149155446097, guid: bee5b2905fee1fa4da4b72e5cbfbf746, type: 3}
       propertyPath: m_Name
       value: OutterBall
