@@ -236,7 +236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.3}
+  m_AnchoredPosition: {x: 0, y: -10.1}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &72538295
@@ -3845,11 +3845,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: daacd8c2f030250448eb1c5421625ba2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 6056.1265
+      value: 2264.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: daacd8c2f030250448eb1c5421625ba2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 6056.125
+      value: 1541.0416
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: daacd8c2f030250448eb1c5421625ba2, type: 3}
       propertyPath: m_LocalScale.z
@@ -4023,7 +4023,7 @@ Transform:
   m_GameObject: {fileID: 1214317119}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 248.7, y: -42.4, z: 0}
+  m_LocalPosition: {x: 248.7, y: -31.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4081,7 +4081,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 37.6}
+  m_Offset: {x: 0, y: 29.16}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
