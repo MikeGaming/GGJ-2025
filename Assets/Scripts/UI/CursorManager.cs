@@ -56,6 +56,7 @@ public class CursorManager : MonoBehaviour
 				cursor.transform.position += Vector3.forward * 3f;
 				cursor.text.text = "P" + (i + 1);
 			}
+			
 			++i;
 		}
 	}

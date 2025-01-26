@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 		if (merging) {
 			float half_rot_speed = max_rot_speed * 0.5f;
 			foreach (Tapioca ball in balls) {
-				ball.Move(Mathf.Clamp(average.x - ball.transform.position.x, -merge_speed, merge_speed), half_rot_speed);
+				ball.Move(Mathf.Sign(average.x - ball.transform.position.x) * merge_speed, half_rot_speed);
 			}
 		}
 	}
