@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -8,7 +6,6 @@ using UnityEngine.UI;
 public class CursorController : MonoBehaviour
 {
 	public float offset = 0;
-	public TMP_Text text;
 	public Renderer[] renderers;
 	public List<Transform> tokens;
 	public PlayerInput player;
