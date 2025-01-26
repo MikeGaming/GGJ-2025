@@ -13,6 +13,7 @@ public class CursorManager : MonoBehaviour
 	public ToppingSelectMoment[] buttons;
 	public PlayerInputManager pmanager;
 	public PlayerManager plmanager;
+	public float stack_size = 1;
 
 	public GameObject manu;
 	public Camera game_camera;
@@ -37,9 +38,7 @@ public class CursorManager : MonoBehaviour
 		foreach (Transform render in cursor.tokens) {
 			render.GetComponentInChildren<Renderer>().sharedMaterial = stampMats[pmanager.playerCount - 1];
 		}
-		cursor.offset = pmanager.playerCount * 2f;
-		cursor.text.text = "P" + pmanager.playerCount;
-
+		cursor.offset = pmanager.playerCount * stack_size;
 		StartCoroutine(Delay(cursor));
 	}
 
@@ -64,11 +63,10 @@ public class CursorManager : MonoBehaviour
 				foreach (Transform token in cursor.tokens) {
 					token.GetComponentInChildren<Renderer>().sharedMaterial = stampMats[i];
 					if (token.parent != cursor.transform) {
-						token.transform.position += Vector3.forward * 2f;
+						token.transform.position += Vector3.forward * stack_size;
 					}
 				}
-				cursor.transform.position += Vector3.forward * 2f;
-				cursor.text.text = "P" + (i + 1);
+				cursor.transform.position += Vector3.forward * stack_size;
 			}
 			
 			++i;
