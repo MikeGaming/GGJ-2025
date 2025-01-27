@@ -19,9 +19,9 @@ public class Straw : MonoBehaviour
 		boba.bodyType = RigidbodyType2D.Kinematic;
 		boba.linearVelocity = Vector2.zero;
 		boba.angularVelocity = 0f;
-
-		while (boba && boba.position.x != transform.position.x && boba.position.y != transform.position.y) {
-			boba.position = Vector2.MoveTowards(boba.position, transform.position, speed * Time.fixedDeltaTime);
+		Transform trans = boba.transform;
+		while (trans && trans.position != transform.position) {
+			trans.position = Vector3.MoveTowards(trans.position, transform.position, speed * Time.fixedDeltaTime);
 			yield return wffu;
 		}
 		//If killed midway
@@ -36,11 +36,11 @@ public class Straw : MonoBehaviour
 		int index = 0;
 		float percentage = speed * Time.fixedDeltaTime;
 		Vector3 start_pos = transform.position;
-		while (boba && index < points.Length) {
-			float dist = Vector2.Distance(boba.position, points[index].position);
+		while (trans && index < points.Length) {
+			float dist = Vector3.Distance(trans.position, points[index].position);
 			float one_over_dist = 1f / dist;
-			while (boba && percentage < dist) {
-				boba.transform.position = Vector3.Lerp(start_pos, points[index].position, percentage * one_over_dist);
+			while (trans && percentage < dist) {
+				trans.position = Vector3.Lerp(start_pos, points[index].position, percentage * one_over_dist);
 				yield return wffu;
 				percentage += speed * Time.fixedDeltaTime;
 			}
@@ -52,7 +52,7 @@ public class Straw : MonoBehaviour
 		if (boba == null)
 			yield break;
 
-		boba.position = start_pos;
+		trans.position = start_pos;
 
 		boba.gameObject.layer = temp_layer;
 		shape.gameObject.layer = temp_layer2;

@@ -7993,10 +7993,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pouch (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 8088229474871008379, guid: fc443813f746c3342a65c2db2f7f3057, type: 3}
-      propertyPath: amount
-      value: 250
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

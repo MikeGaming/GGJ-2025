@@ -439,8 +439,8 @@ MonoBehaviour:
   jump_delay: 3
   min_jump_strength: 10
   max_jump_strength: 11
-  jump_spread: 1
-  max_distance: 25
+  jump_spread: 2
+  max_distance: 35
   player_mat: {fileID: 0}
   balls: []
   cam: {fileID: 0}
