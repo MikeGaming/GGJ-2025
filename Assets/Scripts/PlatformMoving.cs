@@ -15,6 +15,7 @@ public class PlatformMoving : MonoBehaviour
 	private float x, y, z = 0f;
 
 	Rigidbody2D bod;
+	float counter = 0f;
 
     private void Start()
     {
@@ -28,16 +29,18 @@ public class PlatformMoving : MonoBehaviour
 
 		bod = GetComponent<Rigidbody2D>();
 		if (bod) {
-			transform.position = new Vector3(
-				initialPosition.x + movementAmountX * Mathf.Sin((Time.time + x) * movementSpeedX),
-				initialPosition.y + movementAmountY * Mathf.Sin((Time.time + y) * movementSpeedY),
-				initialPosition.z
-			);
-			transform.rotation = Quaternion.Euler(
-				initialRotation.x,
-				initialRotation.y,
-				initialRotation.z + rotationAmount * Mathf.Sin((Time.time + z) * rotationSpeed)
-			);
+			if (random_offset) {
+				transform.position = new Vector3(
+					initialPosition.x + movementAmountX * Mathf.Sin((counter + x) * movementSpeedX),
+					initialPosition.y + movementAmountY * Mathf.Sin((counter + y) * movementSpeedY),
+					initialPosition.z
+				);
+				transform.rotation = Quaternion.Euler(
+					initialRotation.x,
+					initialRotation.y,
+					initialRotation.z + rotationAmount * Mathf.Sin((counter + z) * rotationSpeed)
+				);
+			}
 			inverse_time = 1f / Time.fixedDeltaTime;
 		}
     }
@@ -47,24 +50,25 @@ public class PlatformMoving : MonoBehaviour
     private void FixedUpdate()
     {
 		if (bod) {
-			bod.linearVelocityX = (movementAmountX * Mathf.Sin((Time.time + x) * movementSpeedX) -
-									movementAmountX * Mathf.Sin((Time.time + x -  Time.fixedDeltaTime) * movementSpeedX)) * inverse_time;
-			bod.linearVelocityY = (movementAmountY * Mathf.Sin((Time.time + y) * movementSpeedY) -
-									movementAmountY * Mathf.Sin((Time.time + y -  Time.fixedDeltaTime) * movementSpeedY)) * inverse_time;
-			bod.angularVelocity = (rotationAmount * Mathf.Sin((Time.time + z) * rotationSpeed) -
-									rotationAmount * Mathf.Sin((Time.time + z -  Time.fixedDeltaTime) * rotationSpeed)) * inverse_time;
+			bod.linearVelocityX = (movementAmountX * Mathf.Sin((counter + x) * movementSpeedX) -
+									movementAmountX * Mathf.Sin((counter + x -  Time.fixedDeltaTime) * movementSpeedX)) * inverse_time;
+			bod.linearVelocityY = (movementAmountY * Mathf.Sin((counter + y) * movementSpeedY) -
+									movementAmountY * Mathf.Sin((counter + y -  Time.fixedDeltaTime) * movementSpeedY)) * inverse_time;
+			bod.angularVelocity = (rotationAmount * Mathf.Sin((counter + z) * rotationSpeed) -
+									rotationAmount * Mathf.Sin((counter + z -  Time.fixedDeltaTime) * rotationSpeed)) * inverse_time;
 		}
 		else {
 			transform.position = new Vector3(
-            	initialPosition.x + movementAmountX * Mathf.Sin((Time.time + x)* movementSpeedX),
-            	initialPosition.y + movementAmountY * Mathf.Sin((Time.time + y)* movementSpeedY),
+            	initialPosition.x + movementAmountX * Mathf.Sin((counter + x)* movementSpeedX),
+            	initialPosition.y + movementAmountY * Mathf.Sin((counter + y)* movementSpeedY),
 	            initialPosition.z
         	);
         	transform.rotation = Quaternion.Euler(
             	initialRotation.x,
             	initialRotation.y,
-            	initialRotation.z + rotationAmount * Mathf.Sin((Time.time + z)* rotationSpeed)
+            	initialRotation.z + rotationAmount * Mathf.Sin((counter + z)* rotationSpeed)
         	);
 		}
+		counter += Time.fixedDeltaTime;
     }
 }

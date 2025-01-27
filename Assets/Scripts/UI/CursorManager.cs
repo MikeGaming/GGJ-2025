@@ -18,13 +18,10 @@ public class CursorManager : MonoBehaviour
 
 	public GameObject manu;
 	public Camera game_camera;
-	public Camera renedr_camera;
-
 	List<PlayerInput> players = new List<PlayerInput>();
 
 	void Start() {
 		game_camera.enabled = false;
-		renedr_camera.enabled = false;
 		manu.SetActive(true);
     }
 
@@ -110,7 +107,6 @@ public class CursorManager : MonoBehaviour
 
 		plmanager.Invoke("StartGame", 5f);
 		game_camera.enabled = true;
-		renedr_camera.enabled = true;
         manu.SetActive(false);
 	}
 }

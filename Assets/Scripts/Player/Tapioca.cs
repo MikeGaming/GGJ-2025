@@ -9,6 +9,7 @@ public class Tapioca : MonoBehaviour
 	public PlayerController controller;
 	[HideInInspector]
 	public Rigidbody2D bod;
+	public float too_far = 0f;
 
 	private void Awake() {
 		bod = GetComponent<Rigidbody2D>();
@@ -36,6 +37,8 @@ public class Tapioca : MonoBehaviour
 
 	public bool RemoveSelf() {
 		if (!controller || bod.bodyType != RigidbodyType2D.Dynamic) return false;
+		
+		too_far = 0f;
 		
 		shape.gameObject.layer = 10;
 		ring.sharedMaterial = dead_mat;

@@ -6,6 +6,7 @@ public class MainMenuBalls : MonoBehaviour
 	public Transform upper_right;
 
 	public Tapioca[] tapiocas;
+	public Material[] player_mats;
 	public int amount;
 
 	private void Start() {
@@ -13,7 +14,8 @@ public class MainMenuBalls : MonoBehaviour
 			Instantiate(tapiocas[Random.Range(0, tapiocas.Length)],
 					Vector3.right * Random.Range(lower_left.position.x, upper_right.position.x) +
 					Vector3.up * Random.Range(lower_left.position.y, upper_right.position.y),
-					Quaternion.Euler(0f, 0f, Random.Range(-180f, 180f)), transform);
+					Quaternion.Euler(0f, 0f, Random.Range(-180f, 180f)), transform)
+					.ring.sharedMaterial = player_mats[Random.Range(0, player_mats.Length)];
 		}
 	}
 }

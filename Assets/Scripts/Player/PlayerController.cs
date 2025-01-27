@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 	public float max_jump_strength = 12f;
 	public float jump_spread = 1f;
 	public float max_distance = 35f;
+	public float far_lifespan = 0.25f;
 	public event Action<float, float> move_tapioca;
 	[HideInInspector]
 	public Material player_mat;
@@ -45,16 +46,30 @@ public class PlayerController : MonoBehaviour
 			return;
 		
 		Vector2 new_average = Vector2.zero;
+		int count = 0;
 		for (int i = 0; i < balls.Count;) {
 			Tapioca ball = balls[i];
-			if (ball.bod.bodyType == RigidbodyType2D.Dynamic && Vector2.SqrMagnitude(ball.bod.position - average) > max_distance * max_distance) {
-				ball.RemoveSelf();
+			if (ball.bod.bodyType == RigidbodyType2D.Kinematic) {
+				++i;
 				continue;
 			}
+			if (Vector2.SqrMagnitude(ball.bod.position - average) > max_distance * max_distance) {
+				ball.too_far += Time.fixedDeltaTime;
+				if (ball.too_far > far_lifespan)
+					ball.RemoveSelf();
+				else
+					++i;
+				continue;
+			}
+			if (ball.too_far > 0f) {
+				ball.too_far = Mathf.Max(Time.fixedDeltaTime, 0f);
+			}
+
+			++count;
 			new_average += new Vector2(ball.transform.position.x, ball.transform.position.y);
 			++i;
 		}
-		average = new_average / balls.Count;
+		average = new_average / count;
 
 		if (direction != 0) {
 			move_tapioca?.Invoke(direction * speed, max_rot_speed);
@@ -122,6 +137,7 @@ public class PlayerController : MonoBehaviour
 		tapioca.ring.sharedMaterial = player_mat;
 		
 		tapioca.controller = this;
+		tapioca.too_far = far_lifespan;
 		balls.Add(tapioca);
 		cam.following.Add(tapioca.transform);
 		move_tapioca += tapioca.Move;

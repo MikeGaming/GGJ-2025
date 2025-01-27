@@ -111,6 +111,7 @@ MonoBehaviour:
   shape: {fileID: 0}
   controller: {fileID: 0}
   bod: {fileID: 0}
+  too_far: 0
 --- !u!58 &4335542746367754440
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -198,7 +199,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: bee5b2905fee1fa4da4b72e5cbfbf746, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 0087f1850ca494d48ac4137f44f104b4, type: 2}
+      objectReference: {fileID: 2100000, guid: 29b870a9b5899c540a4f80d6f8aefe67, type: 2}
     - target: {fileID: 919132149155446097, guid: bee5b2905fee1fa4da4b72e5cbfbf746, type: 3}
       propertyPath: m_Name
       value: OutterBall
