@@ -42,6 +42,7 @@ public class CameraController : MonoBehaviour
 				continue;
 			}
 			else if (following[i].gameObject.layer== 7) {
+				++i;
 				continue;
 			}
 			else {
