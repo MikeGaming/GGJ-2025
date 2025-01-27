@@ -35,13 +35,18 @@ public class CameraController : MonoBehaviour
 		float minx = float.PositiveInfinity, maxx = float.NegativeInfinity;
 		float miny = float.PositiveInfinity, maxy = float.NegativeInfinity;
 		Vector3 sum = Vector3.zero;
+		int count = 0;
 		for (int i = 0; i < following.Count;) {
 			if (following[i] == null) {
 				following.RemoveAt(i);
 				continue;
 			}
-			else { 
+			else if (following[i].gameObject.layer== 7) {
+				continue;
+			}
+			else {
 				sum += following[i].position;
+				++count;
 			}
 			if (following[i].position.x > maxx)
 				maxx = following[i].position.x;
@@ -57,8 +62,24 @@ public class CameraController : MonoBehaviour
 		//if something gets killed in the loop
 		if (following.Count <= 0) return;
 
+		//if everything is in a straw
+		if (count == 0) {
+			count = following.Count;
+			for (int i = 0; i < following.Count; ++i) {
+				sum += following[i].position;
+				if (following[i].position.x > maxx)
+					maxx = following[i].position.x;
+				if (following[i].position.x < minx)
+					minx = following[i].position.x;
+				if (following[i].position.y > maxy)
+					maxy = following[i].position.y;
+				if (following[i].position.y < miny)
+					miny = following[i].position.y;
+			}
+		}
+
 		//get average
-		sum /= following.Count;
+		sum /= count;
 
 		//figure out distance ratio
 		offset.z = -Mathf.Clamp(Mathf.Max((maxx - minx) * distanceScalerx, (maxy - miny) * distanceScalery), minWidth, maxWidth);

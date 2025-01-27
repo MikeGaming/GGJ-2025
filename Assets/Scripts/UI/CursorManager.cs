@@ -13,7 +13,8 @@ public class CursorManager : MonoBehaviour
 	public ToppingSelectMoment[] buttons;
 	public PlayerInputManager pmanager;
 	public PlayerManager plmanager;
-	public float stack_size = 1;
+	public float stack_size = 1f;
+	public float base_stack = 1f;
 
 	public GameObject manu;
 	public Camera game_camera;
@@ -38,7 +39,7 @@ public class CursorManager : MonoBehaviour
 		foreach (Transform render in cursor.tokens) {
 			render.GetComponentInChildren<Renderer>().sharedMaterial = stampMats[pmanager.playerCount - 1];
 		}
-		cursor.offset = pmanager.playerCount * stack_size;
+		cursor.offset = base_stack + pmanager.playerCount * stack_size;
 		StartCoroutine(Delay(cursor));
 	}
 

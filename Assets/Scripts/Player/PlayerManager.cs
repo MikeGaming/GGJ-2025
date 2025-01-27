@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
 	public int start_amount = 50;
 	public float speed = 90f;
 	public float final_angle = 95f;
-	public Transform cup;
+	public Rigidbody2D cup;
 
 	public void PlayerJoined(PlayerController pinput, int index, Material mat) {
 		pinput.name = "Player " + index;
@@ -22,11 +22,13 @@ public class PlayerManager : MonoBehaviour
 	}
 
 	IEnumerator Rotate() {
-		float angle = cup.eulerAngles.z;
+		float angle = cup.rotation;
 		while (angle != final_angle) {
-			angle = Mathf.MoveTowards(angle, final_angle, speed * Time.deltaTime);
-			cup.eulerAngles = Vector3.forward * angle;
-			yield return null;
+			cup.angularVelocity = (Mathf.MoveTowards(angle, final_angle, speed * Time.fixedDeltaTime) - angle) / Time.fixedDeltaTime;
+			yield return new WaitForFixedUpdate();
+			angle = cup.rotation;
 		}
+		cup.angularVelocity = 0f;
+		cup.rotation = angle;
 	}
 }
